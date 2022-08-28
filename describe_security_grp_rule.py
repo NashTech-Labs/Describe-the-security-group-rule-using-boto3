@@ -1,3 +1,4 @@
+# By MuZakkir Saifi
 # import logging for get the logs in  execution
 import logging
 # import the boto3 which will use to interact  with the aws
@@ -42,9 +43,16 @@ def describe_rules(grp_ids, maximum_items):
 
 
 if __name__ == '__main__':
-    # GRP_IDS = input("Please enter the Security Groups ID: ")
+    GRP_IDS = []  # define the empty list
+    
+    # user will enter the number of elements
+    number = int(input("Enter number of elements : "))
+    for i in range(0, number):
+        elements = input("enter you Security group ID")
+    
+        GRP_IDS.append(elements)
     MAXIMUM_ITEMS = int(input("Enter the Value for MAX ITEMS: "))
-    GRP_IDS = ['<enter security grp id>']
+
     grp_rules = describe_rules(GRP_IDS, MAXIMUM_ITEMS)
     
     logger_for.info('Your Security groups rules: ')
